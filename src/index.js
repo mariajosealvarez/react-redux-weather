@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import store from './store';
 import SearchContainer from './containers/search-container';
@@ -10,13 +12,17 @@ import './index.css';
 
 class App extends React.Component {
   render(){
+    let persistor = persistStore(store);
+
     return (
       <Provider store={store}>
-        <div>
-          <SearchContainer />
-          <UnitSelector />
-          <Forecast />
-        </div>
+        <PersistGate loading={null} persistor={persistor}>
+          <div>
+            <SearchContainer />
+            <UnitSelector />
+            <Forecast />
+          </div>
+        </PersistGate>
       </Provider>
     );
   }
