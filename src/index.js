@@ -4,13 +4,17 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 import SearchContainer from './containers/search-container';
+import Forecast from './containers/forecast-container';
 import './index.css';
 
 class App extends React.Component {
   render(){
     return (
       <Provider store={store}>
-        <SearchContainer />
+        <div>
+          <SearchContainer />
+          <Forecast />
+        </div>
       </Provider>
     );
   }

@@ -2,7 +2,6 @@ import { GET_FORECAST } from '../actions/types';
 
 const initialState = {
   forecast: [],
-  inFarenheith: false,
   inCelsius: true,
 }
 

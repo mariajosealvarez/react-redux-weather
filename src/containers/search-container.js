@@ -14,13 +14,13 @@ class SearchContainer extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     onSearch: location => {
-      dispatch(getForecast(location))
+      dispatch(getForecast(location));
     }
-  }
-}
+  };
+};
 
 export default connect(
   null,
