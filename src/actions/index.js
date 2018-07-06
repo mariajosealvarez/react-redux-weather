@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-import { GET_FORECAST } from './types';
+import {
+  GET_FORECAST,
+  CHANGE_UNIT,
+} from './types';
 
 const API_URL = 'http://api.apixu.com/v1/forecast.json?';
 const APP_ID = 'b4183bef17a8458b83f170022180607';
@@ -27,3 +30,11 @@ export const getForecast = (location) => {
       });
   };
 };
+
+
+export const changeUnit = (inCelsius) => {
+  return {
+    type: CHANGE_UNIT,
+    inCelsius,
+  }
+}

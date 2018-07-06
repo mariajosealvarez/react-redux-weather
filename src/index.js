@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import SearchContainer from './containers/search-container';
 import Forecast from './containers/forecast-container';
+import UnitSelector from './containers/unit-selector-container';
 import './index.css';
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
       <Provider store={store}>
         <div>
           <SearchContainer />
+          <UnitSelector />
           <Forecast />
         </div>
       </Provider>
