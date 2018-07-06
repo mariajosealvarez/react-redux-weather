@@ -9,6 +9,7 @@ import SearchContainer from './containers/search-container';
 import Forecast from './containers/forecast-container';
 import UnitSelector from './containers/unit-selector-container';
 import './index.css';
+import FeedbackForm from './components/feedback-form';
 
 class App extends React.Component {
   render(){
@@ -21,6 +22,7 @@ class App extends React.Component {
             <SearchContainer />
             <UnitSelector />
             <Forecast />
+            <FeedbackForm />
           </div>
         </PersistGate>
       </Provider>

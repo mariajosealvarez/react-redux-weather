@@ -8,8 +8,8 @@ const WeatherInfo = ({ weatherData, inCelsius }) => {
     <div>
       <p>{weatherData.date}</p>
       <p>{weatherData.day.condition.text}</p>
-      <p>{minTemp}</p>
-      <p>{maxTemp}</p>
+      <p>Min: {minTemp}</p>
+      <p>Max: {maxTemp}</p>
       <img
         alt={weatherData.day.condition.text}
         src={weatherData.day.condition.icon}

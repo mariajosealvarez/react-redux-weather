@@ -1,10 +1,11 @@
 import React from 'react';
 
 import WeatherInfoContainer from '../containers/weather-info-container';
+import './forecast.css';
 
 const Forecast = ({ forecast }) => {
   return (
-    <div>
+    <div className="forecastWrapper">
       {
         forecast && forecast.map((forecastDay) => (
           <WeatherInfoContainer
