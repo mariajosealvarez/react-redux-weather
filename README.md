@@ -1,0 +1,3 @@
+- Application based on `create-react-app`
+- Fetch weather data from `http://api.apixu.com/v1/forecast` using `axios`
+- Include `styled components`

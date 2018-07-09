@@ -1,5 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 
+import ButtonLink from './styled-components/button-link';
+import { FONT_COLOR } from '../constants';
+
+const Wrapper = styled.div`
+  font-size: 13px;
+  color: ${FONT_COLOR};
+  padding: 10px 0;
+`;
 class UnitSelector extends React.Component {
   constructor(props){
     super(props);
@@ -12,20 +21,22 @@ class UnitSelector extends React.Component {
 
   render() {
     return (
-      <div>
-        <button
+      <Wrapper>
+        <span>Display temperature in</span>
+        <ButtonLink
           disabled={this.props.inCelsius}
           onClick={this.handleOnChangeUnit}
         >
-          °C
-        </button>
-        <button
+          Celcius
+        </ButtonLink>
+        or 
+        <ButtonLink
           disabled={!this.props.inCelsius}
           onClick={this.handleOnChangeUnit}
         >
-          °F
-        </button>
-      </div>
+          Farenheit
+        </ButtonLink>
+      </Wrapper>
     )
   }
 }

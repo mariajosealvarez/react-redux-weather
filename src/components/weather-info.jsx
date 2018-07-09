@@ -1,11 +1,13 @@
 import React from 'react';
 
+import './weather-info.css';
+
 const WeatherInfo = ({ weatherData, inCelsius }) => {
   const minTemp = inCelsius ? weatherData.day.mintemp_c : weatherData.day.mintemp_f;
   const maxTemp = inCelsius ? weatherData.day.maxtemp_c : weatherData.day.maxtemp_f;
 
   return (
-    <div>
+    <div className="weatherInfo">
       <p>{weatherData.date}</p>
       <p>{weatherData.day.condition.text}</p>
       <p>Min: {minTemp}</p>

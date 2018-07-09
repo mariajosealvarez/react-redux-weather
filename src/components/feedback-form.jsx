@@ -1,4 +1,45 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import Button from './styled-components/button';
+import Input from './styled-components/input';
+import { FONT_COLOR } from '../constants';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const FeedbackButton = Button.extend`
+  max-width: 300px;
+`
+
+const Form = styled.form`
+  justify-self: flex-start;
+  color: ${FONT_COLOR};
+  font-size: 16px;
+  max-width: 300px;
+`;
+
+const Row = styled.div`
+  margin: 10px 0;
+  display: flex;
+`;
+
+const Label = styled.label`
+  flex-grow: 1;
+`
+const InputForm = Input.extend`
+  margin: 0;
+  flex-grow: 3;
+`
+
+const Select = Button.withComponent('select');
+const FrequencySelect = Select.extend`
+  flex-grow: 3;
+`
+
+const Submit = Button.withComponent('input');
 
 class FeedbackForm extends React.Component {
   constructor(props){
@@ -45,48 +86,50 @@ class FeedbackForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.handleShowFormClick}>{this.state.buttonText}</button>
+      <Wrapper>
+        <FeedbackButton onClick={this.handleShowFormClick}>{this.state.buttonText}</FeedbackButton>
         {
           this.state.showForm &&
-          <form
+          <Form
             onSubmit={this.handleSubmit}
           >
-            <div>
-              <label>Name: </label>
-              <input
+            <Row>
+              <Label>Name: </Label>
+              <InputForm
                 name="name"
                 type="text"
                 placeholder="Name"
                 onChange={this.handleInputChange}
-              />
-            </div>
-            <div>
-              <label>Email: </label>
-              <input
+              >
+              </InputForm>
+            </Row>
+            <Row>
+              <Label>Email: </Label>
+              <InputForm
                 name="email"
                 type="text"
                 placeholder="Email"
                 onChange={this.handleInputChange}
-              />
-            </div>
-            <div>
-              <label>Frequence: </label>
-              <select
+              >
+              </InputForm>
+            </Row>
+            <Row>
+              <Label>Frequence: </Label>
+              <FrequencySelect
                 value={this.state.frequence}
                 onChange={this.handleSelectChange}
               >
                 <option value="daily">Daily</option>
                 <option value="weekly">Weekly</option>
                 <option value="monthly">Monthly</option>
-              </select>
-            </div>
-            <div>
-              <input type="submit" value="Submit" />
-            </div>
-          </form>
+              </FrequencySelect>
+            </Row>
+            <Row>
+              <Submit type="submit" value="Submit"></Submit>
+            </Row>
+          </Form>
         }
-      </div>
+      </Wrapper>
     )
   }
 };

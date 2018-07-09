@@ -1,4 +1,23 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
+
+import { FONT_COLOR } from '../constants';
+import Button from './styled-components/button';
+import Input from './styled-components/input';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`;
+
+const Title = styled.span`
+  margin-right: 10px;
+  font-size: 24px;
+  text-align: center;
+  color: ${FONT_COLOR};
+`;
 
 class Search extends React.Component {
   constructor(props) {
@@ -21,15 +40,16 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <span>Location: </span>
-        <input
+      <Wrapper>
+        <Title>Location: </Title>
+        <Input
           type="text"
           placeholder="Enter the location"
           value = {this.state.location}
-          onChange={(e) => this.handleOnLocationChange(e) }/>
-        <button onClick={this.handleSearchClick}>Search</button>
-      </div>
+          onChange={(e) => this.handleOnLocationChange(e) }>
+        </Input>
+        <Button onClick={this.handleSearchClick}>Search</Button>
+      </Wrapper>
     )
   }
 }

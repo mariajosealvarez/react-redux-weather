@@ -1,0 +1,15 @@
+.weatherInfo {
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  margin: 15px;
+}
+
+.weatherInfo > p {
+  margin: 5px 0;
+}
+
+.weatherInfo > img {
+  width: 64px;
+  height: 64px;
+}
