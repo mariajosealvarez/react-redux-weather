@@ -98,7 +98,6 @@ class FeedbackForm extends React.Component {
               <InputForm
                 name="name"
                 type="text"
-                placeholder="Name"
                 onChange={this.handleInputChange}
               >
               </InputForm>
@@ -108,7 +107,6 @@ class FeedbackForm extends React.Component {
               <InputForm
                 name="email"
                 type="text"
-                placeholder="Email"
                 onChange={this.handleInputChange}
               >
               </InputForm>

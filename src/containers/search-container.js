@@ -14,6 +14,12 @@ class SearchContainer extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    location: state.location || '',
+  };
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     onSearch: location => {
@@ -23,6 +29,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SearchContainer);

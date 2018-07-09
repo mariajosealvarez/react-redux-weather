@@ -15,20 +15,30 @@ const ForecastWrapper = styled.div`
   flex-flow: row wrap;
 `;
 
-const Forecast = ({ forecast }) => {
+const Location = styled.div`
+  font-size: 20px;
+  margin: 10px 0;
+`
+
+const Forecast = ({ location, forecast }) => {
   return (
-    <ForecastWrapper>
-      {
-        forecast.length ? forecast.map((forecastDay) => (
-          <WeatherInfoContainer
-            key={forecastDay.date_epoch}
-            weatherData={forecastDay}
-          />
-        )) :
-        <div> No data yet </div>
-        // TODO add more button
-      }
-    </ForecastWrapper>
+    <div>
+      <Location>
+        Current forecast for: <i>{location}</i>
+      </Location>
+      <ForecastWrapper>
+        {
+          forecast.length ? forecast.map((forecastDay) => (
+            <WeatherInfoContainer
+              key={forecastDay.date_epoch}
+              weatherData={forecastDay}
+            />
+          )) :
+          <div> No data yet </div>
+          // TODO add more button
+        }
+      </ForecastWrapper>
+    </div>
   )
 }
 
