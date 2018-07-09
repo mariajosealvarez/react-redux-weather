@@ -42,30 +42,22 @@ const FrequencySelect = Select.extend`
 const Submit = Button.withComponent('input');
 
 class FeedbackForm extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      showForm: false,
-      buttonText: 'Customize notifications',
-      name: '',
-      email: '',
-      frequence: 'monthly',
-
-    }
-    this.handleShowFormClick = this.handleShowFormClick.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state = {
+    showForm: false,
+    buttonText: 'Customize notifications',
+    name: '',
+    email: '',
+    frequence: 'monthly',
   }
 
-  handleShowFormClick(){
+  handleShowFormClick = () => {
     this.setState((prevState) => ({
       showForm: !this.state.showForm,
       buttonText: prevState.showForm ? 'Customize notifications' : 'Hide Form',
     }));
   }
 
-  handleInputChange(event){
+  handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
@@ -73,13 +65,13 @@ class FeedbackForm extends React.Component {
     });
   }
 
-  handleSelectChange(event){
+  handleSelectChange = (event) => {
     this.setState({
       frequence: event.target.value
     });
   }
 
-  handleSubmit(event){
+  handleSubmit = (event) => {
     console.info(this.state);
     event.preventDefault();
   }

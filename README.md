@@ -5,7 +5,8 @@
 
 Improvements:
 - Add form validation to styled components
-- use ramda or lodash
-- get extended forecast adding a "More" button and doing a new call to the API
-- clear search
-- search on enter
+- Add modal on API error
+- Use ramda or lodash
+- Get extended forecast adding a "More" button and doing a new call to the API
+- Clear search
+- Search on enter

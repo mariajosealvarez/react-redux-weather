@@ -6,6 +6,7 @@ import {
 const initialState = {
   forecast: [],
   inCelsius: true,
+  location: '',
 }
 
 const reducers = (state=initialState, action) => {

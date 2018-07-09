@@ -20,21 +20,17 @@ const Title = styled.span`
 `;
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSearchClick = this.handleSearchClick.bind(this);
-    this.state = {
-      location: this.props.location || '',
-    }
+  state = {
+    location: this.props.location || '',
   }
 
-  handleOnLocationChange(e){
+  handleOnLocationChange = (e) => {
     this.setState({
       location: e.target.value,
     })
   }
 
-  handleSearchClick() {
+  handleSearchClick = () => {
     this.props.onSearch(this.state.location);
   }
 

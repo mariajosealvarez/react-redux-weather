@@ -10,12 +10,7 @@ const Wrapper = styled.div`
   padding: 10px 0;
 `;
 class UnitSelector extends React.Component {
-  constructor(props){
-    super(props);
-    this.handleOnChangeUnit = this.handleOnChangeUnit.bind(this);
-  }
-
-  handleOnChangeUnit(){
+  handleOnChangeUnit = () => {
     this.props.onChangeUnit(!this.props.inCelsius);
   }
 
@@ -29,7 +24,7 @@ class UnitSelector extends React.Component {
         >
           Celcius
         </ButtonLink>
-        or 
+        or
         <ButtonLink
           disabled={!this.props.inCelsius}
           onClick={this.handleOnChangeUnit}
