@@ -12,10 +12,11 @@ const genApiURL = (location) => {
   return `${API_URL}q=${location}&key=${APP_ID}&days=5`;
 };
 
-export const getForecastSuccess = (forecast) => {
+export const getForecastSuccess = (location, forecast) => {
   return {
     type: GET_FORECAST,
     forecast,
+    location,
   }
 };
 
@@ -23,7 +24,7 @@ export const getForecast = (location) => {
   return (dispatch) => {
     return axios.get(genApiURL(location))
       .then(response => {
-        dispatch(getForecastSuccess(response.data.forecast.forecastday));
+        dispatch(getForecastSuccess(location, response.data.forecast.forecastday));
       })
       .catch(error => {
         throw(error);

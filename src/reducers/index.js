@@ -14,6 +14,7 @@ const reducers = (state=initialState, action) => {
       return {
         ...state,
         forecast: action.forecast,
+        location: action.location,
       }
     case CHANGE_UNIT:
       return {

@@ -24,7 +24,7 @@ class Search extends React.Component {
     super(props);
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.state = {
-      location: '',
+      location: this.props.location || '',
     }
   }
 
