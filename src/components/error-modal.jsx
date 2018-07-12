@@ -1,6 +1,7 @@
 import React from 'react';
-import './error-modal.css';
+import { pathOr } from 'ramda';
 
+import './error-modal.css';
 import Button from './styled-components/button';
 
 const ErrorModal = ({displayErrorModal, error, hideErrorModal}) => {
@@ -10,7 +11,7 @@ const ErrorModal = ({displayErrorModal, error, hideErrorModal}) => {
       displayErrorModal &&
         <div className="modalOverlay">
           <div className="modal">
-            <p>{error.message}</p>
+            <p>{pathOr('Error', ['message'], error)}</p>
             <Button onClick={hideErrorModal}>OK</Button>
           </div>
         </div>

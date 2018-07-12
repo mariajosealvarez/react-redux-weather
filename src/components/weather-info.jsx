@@ -1,20 +1,22 @@
 import React from 'react';
+import { pathOr } from 'ramda';
 
 import './weather-info.css';
 
 const WeatherInfo = ({ weatherData, inCelsius }) => {
-  const minTemp = inCelsius ? weatherData.day.mintemp_c : weatherData.day.mintemp_f;
-  const maxTemp = inCelsius ? weatherData.day.maxtemp_c : weatherData.day.maxtemp_f;
+  const emptyText = '-';
+  const minTemp = inCelsius ? pathOr(emptyText, ['day', 'mintemp_c'], weatherData) : pathOr(emptyText, ['day', 'mintemp_f'], weatherData);
+  const maxTemp = inCelsius ? pathOr(emptyText, ['day', 'maxtemp_c'], weatherData) : pathOr(emptyText, ['day', 'maxtemp_f'], weatherData);
 
   return (
     <div className="weatherInfo">
-      <p>{weatherData.date}</p>
-      <p>{weatherData.day.condition.text}</p>
+      <p>{pathOr('', ['date'], weatherData)}</p>
+      <p>{pathOr('', ['day', 'condition', 'text'], weatherData)}</p>
       <p>Min: {minTemp}</p>
       <p>Max: {maxTemp}</p>
       <img
-        alt={weatherData.day.condition.text}
-        src={weatherData.day.condition.icon}
+        alt={pathOr('', ['day', 'condition', 'text'], weatherData)}
+        src={pathOr('', ['day', 'condition', 'icon'], weatherData)}
       />
     </div>
   )

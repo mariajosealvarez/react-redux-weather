@@ -26,7 +26,8 @@ Non functional requirements:
 ----------------------------------
 Improvements:
 - Add form validation to styled components
-- Use ramda or lodash
 - Get extended forecast adding a "More" button and doing a new call to the API
+  - Add loading overlay
 - Clear search
 - Search on enter
+- Add unit tests
