@@ -1,2 +1,4 @@
 export const GET_FORECAST = 'GET_FORECAST';
 export const CHANGE_UNIT = 'CHANGE_UNIT';
+export const SHOW_ERROR_MODAL = 'TOGGLE_ERROR_MODAL';
+export const HIDE_ERROR_MODAL = 'HIDE_ERROR_MODAL';

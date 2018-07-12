@@ -3,6 +3,8 @@ import axios from 'axios';
 import {
   GET_FORECAST,
   CHANGE_UNIT,
+  SHOW_ERROR_MODAL,
+  HIDE_ERROR_MODAL,
 } from './types';
 
 const API_URL = 'http://api.apixu.com/v1/forecast.json?';
@@ -27,11 +29,11 @@ export const getForecast = (location) => {
         dispatch(getForecastSuccess(location, response.data.forecast.forecastday));
       })
       .catch(error => {
-        throw(error);
+        // TODO send error message to the modal
+        dispatch(showErrorModal(error.response.data.error));
       });
   };
 };
-
 
 export const changeUnit = (inCelsius) => {
   return {
@@ -39,3 +41,19 @@ export const changeUnit = (inCelsius) => {
     inCelsius,
   }
 }
+
+export const showErrorModal = (error) => {
+  return {
+    type: SHOW_ERROR_MODAL,
+    displayErrorModal: true,
+    error
+  }
+}
+
+export const hideErrorModal = () => {
+  return {
+    type: HIDE_ERROR_MODAL,
+    displayErrorModal: false,
+  }
+}
+

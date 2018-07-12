@@ -10,6 +10,7 @@ import Forecast from './containers/forecast-container';
 import UnitSelector from './containers/unit-selector-container';
 import './index.css';
 import FeedbackForm from './components/feedback-form';
+import ErrorModalContainer from './containers/error-modal-container';
 
 class App extends React.Component {
   render(){
@@ -23,6 +24,7 @@ class App extends React.Component {
             <UnitSelector />
             <Forecast />
             <FeedbackForm />
+            <ErrorModalContainer />
           </div>
         </PersistGate>
       </Provider>
