@@ -34,6 +34,12 @@ class Search extends React.Component {
     this.props.onSearch(this.state.location);
   }
 
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.props.onSearch(this.state.location);
+    }
+  }
+
   render() {
     return (
       <Wrapper>
@@ -42,7 +48,9 @@ class Search extends React.Component {
           type="text"
           placeholder="Enter the location"
           value = {this.state.location}
-          onChange={(e) => this.handleOnLocationChange(e) }>
+          onChange={this.handleOnLocationChange}
+          onKeyPress={this.handleKeyPress}
+        >
         </Input>
         <Button onClick={this.handleSearchClick}>Search</Button>
       </Wrapper>
