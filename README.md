@@ -10,6 +10,8 @@
 * As an user, I'd like to be able of switching between Farenheit and Celcius degrees.
   - User decision has to be persisted between reloads
 
+
+
 Non functional requirements:
 - Use redux to keep application state
 - The UI should have an user friendly design (use icons for)
